@@ -1,15 +1,21 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
- 
+
+use App\Models\User;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the users
+     *
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\View\View
+     */
+    public function index(User $model)
     {
-        $user = Auth::user();
-        return view('user.home', compact('user'));
+        return view('users.index');
     }
 }
